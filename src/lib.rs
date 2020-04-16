@@ -8,7 +8,7 @@ use raw_window_handle::{HasRawWindowHandle, RawWindowHandle};
 use std::ffi::CStr;
 
 #[cfg(any(target_os = "macos", target_os = "ios"))]
-use ash::extensions::mvk;
+use ash::extensions::ext; // portability extensions
 
 /// Create a surface from a raw surface handle.
 ///
