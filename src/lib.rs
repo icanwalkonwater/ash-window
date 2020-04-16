@@ -91,7 +91,7 @@ where
             use raw_window_metal::{macos, Layer};
 
             let layer = match macos::metal_layer_from_handle(handle) {
-                Layer::Existing(layer) | Layer::Allocated(layer) => layer,
+                Layer::Existing(layer) | Layer::Allocated(layer) => layer as *mut _,
                 Layer::None => return Err(vk::Result::ERROR_INITIALIZATION_FAILED)
             };
 
@@ -105,7 +105,7 @@ where
             use raw_window_metal::{ios, Layer};
 
             let layer = match ios::metal_layer_from_handle(handle) {
-                Layer::Existing(layer) | Layer::Allocated(layer) => layer,
+                Layer::Existing(layer) | Layer::Allocated(layer) => layer as *mut _,
                 Layer::None => return Err(vk::Result::ERROR_INITIALIZATION_FAILED)
             };
 
